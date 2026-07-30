@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap');
+
+:root {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  color: #10243d;
+  background: #f4f7fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --ink: #10243d;
+  --ink-soft: #43566d;
+  --muted: #6e7e90;
+  --line: #dbe3ec;
+  --paper: #ffffff;
+  --canvas: #f4f7fb;
+  --blue: #2356d8;
+  --blue-dark: #173fa9;
+  --blue-soft: #e8efff;
+  --mint: #62d9c7;
+  --mint-soft: #e4f8f4;
+  --amber: #f4b844;
+  --coral: #ef6f61;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, input, textarea, select { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { color: inherit; }
+a { color: inherit; }
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(35, 86, 216, 0.3);
+  outline-offset: 2px;
+}
+
+::selection { background: #cbd9ff; color: var(--ink); }

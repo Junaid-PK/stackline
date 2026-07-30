@@ -1,0 +1,7 @@
+services:
+  stackline:
+    build: .
+    container_name: stackline
+    restart: unless-stopped
+    ports:
+      - "${STACKLINE_PORT:?Set STACKLINE_PORT}:80"

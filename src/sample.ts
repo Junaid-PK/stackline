@@ -1,7 +1,11 @@
 import type { ResumeData } from './types'
 
+export const createId = () =>
+  globalThis.crypto?.randomUUID?.() ??
+  `stackline-${Date.now()}-${Math.random().toString(36).slice(2)}`
+
 export const emptyExperience = (): ResumeData['experiences'][number] => ({
-  id: crypto.randomUUID(),
+  id: createId(),
   company: '',
   title: '',
   location: '',
@@ -49,7 +53,7 @@ export const sampleData: ResumeData = {
     'TypeScript, Node.js, PostgreSQL, AWS, Kubernetes, REST APIs, Distributed Systems, System Design, Docker, Redis, Kafka, CI/CD, Observability, Terraform',
   experiences: [
     {
-      id: crypto.randomUUID(),
+      id: createId(),
       company: 'Northstar Labs, Inc.',
       title: 'Senior Software Engineer',
       location: 'San Francisco, CA',
@@ -60,7 +64,7 @@ export const sampleData: ResumeData = {
         'Led the redesign of a TypeScript and Node.js payments API, reducing p95 latency by 42% across 18 million monthly requests.\nBuilt event-driven services with Kafka, PostgreSQL, and Redis, improving payment reconciliation accuracy from 97.8% to 99.95%.\nDeployed services on AWS and Kubernetes with Terraform and CI/CD, cutting release lead time from two days to 35 minutes.\nMentored four engineers and introduced design reviews that reduced production incidents by 31%.',
     },
     {
-      id: crypto.randomUUID(),
+      id: createId(),
       company: 'Atlas Commerce Co.',
       title: 'Software Engineer',
       location: 'Oakland, CA',

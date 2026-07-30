@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest'
-import { sampleData } from './sample'
+import { afterEach, describe, expect, it, vi } from 'vitest'
+import { createId, sampleData } from './sample'
 import {
   analyzeResume,
   extractKeywords,
@@ -9,6 +9,18 @@ import {
 } from './resume'
 
 describe('resume rules', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals()
+  })
+
+  it('creates unique IDs without assuming a secure browser context', () => {
+    vi.stubGlobal('crypto', {})
+    const first = createId()
+    const second = createId()
+    expect(first).toBeTruthy()
+    expect(second).not.toBe(first)
+  })
+
   it('extracts recognizable software keywords from a job description', () => {
     expect(
       extractKeywords('Build REST APIs with TypeScript, Node.js, PostgreSQL, and AWS.'),
